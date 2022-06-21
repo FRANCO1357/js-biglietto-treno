@@ -17,19 +17,25 @@ console.log(price);
 
 // VALIDAZIONE
 
+let finalPrice = ''
+
 if (isNaN(km) || isNaN(age)){
     alert('I valori inseriti non sono corretti')
 } else {
 
 if (age < 18){
-    const finalPrice = price / 100 * 80;
+    finalPrice = (price / 100 * 80).toFixed(2);
     console.log(finalPrice);    
 } else if (age > 65) {
-    const finalPrice = price / 100 * 60;
+    finalPrice = (price / 100 * 60).toFixed(2);
     console.log(finalPrice);  
 } else {
-    const finalPrice = price;
+    finalPrice = price;
     console.log(finalPrice);  
 }
 
 }
+
+const paragraph = document.getElementById('final-price');
+
+paragraph.innerHTML = `Questo è il prezzo del tuo biglietto: <strong>${finalPrice}</strong> €`;
